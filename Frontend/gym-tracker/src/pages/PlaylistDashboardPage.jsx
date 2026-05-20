@@ -8,8 +8,8 @@ const playlistDashboardPage = () => {
     const [playlists, setPlaylists] = useState([]);
     const [newPlaylistName, setNewPlaylistName] = useState("");
     const [searchPlaylist, setSearchPlaylist] = useState("");
+    
     const navigate = useNavigate();
-
 
     const fetchPlaylists = async () => {
         const token = sessionStorage.getItem("token");

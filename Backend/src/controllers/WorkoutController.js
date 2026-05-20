@@ -45,11 +45,15 @@ export const getWorkoutStats = async (req, res) => {
      
     const totalWorkoutTime = workoutTimeTotal[0]?.totalWorkoutTime || 0 
 
+    const workoutTimeDaily = await WorkoutResults.aggregate([
+        { $match: { userId }},
+        { $group: {_id: { $dateToString: {format: "%Y-%m-%d", date: "$startTime"}}, totalDuration: { $sum: "$durationSeconds"}}}, { $sort: { _id: 1 }}]);
+
     //Count the amount of workout results
     const totalWorkouts = await WorkoutResults.countDocuments({ userId });
 
     //Average time spent on a full workoutt
-    const averageWorkoutTime = totalWorkouts > 0 ? totalWorkoutTime / totalWorkouts : 0;
+    const averageWorkoutTime = totalWorkouts > 0 ? (totalWorkoutTime / totalWorkouts) : 0;
 
-    return res.json({ exerciseRepTotals, exerciseRepTotalsDaily, totalWorkoutTime, averageWorkoutTime })
+    return res.json({ exerciseRepTotals, exerciseRepTotalsDaily, totalWorkoutTime, averageWorkoutTime, workoutTimeDaily, totalWorkouts })
     };

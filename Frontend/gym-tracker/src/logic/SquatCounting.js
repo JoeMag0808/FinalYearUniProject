@@ -5,7 +5,7 @@ export const squatAngleLogic = (landmarks, state) => {
 
     if (!landmarks) {
         return state;
-    }
+    };
     
     const leftHip = landmarks[landmarkNames.Left_Hip]
     const leftKnee = landmarks[landmarkNames.Left_Knee]

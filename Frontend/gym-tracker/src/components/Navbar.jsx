@@ -1,10 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 
 const Navbar = () => {
+  
   const navigate = useNavigate();
 
   const user = JSON.parse(sessionStorage.getItem("user"));
+
   const token = sessionStorage.getItem("token");
+
   const isLoggedIn = !!token;
 
   const handleLogout = () => {
