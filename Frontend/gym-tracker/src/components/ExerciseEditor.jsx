@@ -41,17 +41,17 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
     return (
         <div>
             {editExercises.length === 0 ? (
-                    <p className="text-gray-600 mt-4">No exercises in this playlist.</p>
+                    <p className="text-gray-400 mt-4">No exercises in this playlist.</p>
                 ) : (
                  editExercises.map((exercise, index) => (
                 <div key={exercise.id} className="border border-gray-300 p-4 mb-3 rounded-lg">
                     
-                    <p className="font-semibold mb-2">Exercise</p>
+                    <p className="font-semibold mb-2 text-gray-300">Exercise</p>
                     <select
                         disabled={!editMode}
                         value={exercise.exerciseId._id || exercise.exerciseId}
                         onChange={(e) => updateExercise(index,"exerciseId", e.target.value)}
-                        className="border border-gray-300 p-2 rounded-md mb-3"
+                        className="border border-gray-300 p-2 rounded-md mb-3 text-gray-300 bg-zinc-800"
                         >
                             <option value="" disabled>
                             --- Select Exercise ---
@@ -65,34 +65,34 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
                             ))}
                     </select>
                     
-                    <p>Sets:</p>
+                    <p className="text-gray-300">Sets:</p>
                     <input
                         type="number"
                         placeholder="Sets"
                         disabled={!editMode}
                         value={exercise.sets}
                         onChange={(e) => updateExercise(index, "sets", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20"
+                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Sets"
                     />
-                    <p>Reps:</p>
+                    <p className="text-gray-300">Reps:</p>
                     <input
                         type="number"
                         placeholder="Reps"
                         disabled={!editMode}
                         value={exercise.reps}
                         onChange={(e) => updateExercise(index, "reps", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20"
+                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Reps"
                     />
-                    <p>Rest (secs):</p>
+                    <p className="text-gray-300">Rest (secs):</p>
                     <input
                         type="number"
                         placeholder="Rest (seconds)"
                         disabled={!editMode}
                         value={exercise.restSeconds}
                         onChange={(e) => updateExercise(index, "restSeconds", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20"
+                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Rest (sec)"
                     />
 

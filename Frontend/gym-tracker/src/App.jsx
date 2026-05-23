@@ -13,7 +13,7 @@ import ProfilePage from './pages/ProfilePage'
 
 const App = () => {
   return ( 
-  <div>
+  <div className="min-h-screen bg-[#0a0a0a]">
     <Navbar />
     <Routes>
       <Route path='/' element={<LandingPage />} />

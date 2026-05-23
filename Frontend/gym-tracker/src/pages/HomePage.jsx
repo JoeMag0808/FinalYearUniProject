@@ -35,26 +35,7 @@ const HomePage = () => {
 
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-top-center justify-center p-10">
-
-      <div className="w-full max-w-7xl bg-white p-8 rounded-2xl shadow-lg">
-      <h1 className="text-4xl font-bold mb-6 text-center">Dashboard</h1>
-
-      <div className="grid grid-cols-3 gap-4 mt-6">
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="text-xl font-bold mb-2">Total Playlists</h2>
-          {playlists.length}
-        </div>
-
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="text-xl font-bold mb-2">Total Time Spent Exercising</h2>
-        </div>
-
-        <div className="bg-white p-4 rounded shadow">
-          <h2 className="text-xl font-bold mb-2">Average Workout Duration</h2>
-        </div>
-      </div>
-      </div>
+    <div>
     </div>
   ); 
 };

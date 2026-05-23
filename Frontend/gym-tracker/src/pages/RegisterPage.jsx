@@ -48,8 +48,8 @@ const RegisterPage = () => {
 
   
   return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center lg:justify-start bg-black relative ml-auto gap-12 px-10 lg:px-28">
-      <form onSubmit={handleSubmit} className="bg-black p-8 rounded shadow-md w-full max-w-sm space-y-8 text-white lg:ml-72">
+    <div className="min-h-screen flex flex-col lg:flex-row items-center lg:justify-start relative ml-auto gap-12 px-10 lg:px-28">
+      <form onSubmit={handleSubmit} className="bg-[#0a0a0a] p-8 rounded shadow-md w-full max-w-sm space-y-6 text-white lg:ml-72">
       <h1 className="text-7xl font-bold font-inter flex items-center justify-center">Register</h1>
 
       <p className="font-inter text-2xl">Username</p>

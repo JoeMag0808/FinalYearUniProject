@@ -48,9 +48,9 @@ const LoginPage = () => {
 
     
     return (
-    <div className="min-h-screen flex flex-col lg:flex-row items-center lg:justify-start bg-black relative ml-auto gap-12 px-10 lg:px-28">
-      <form onSubmit={handleSubmit} className="bg-black p-8 rounded shadow-md w-full max-w-sm space-y-8 text-white lg:ml-72">
-      <h1 className="text-7xl font-bold flex items-center justify-center">Welcome Back!</h1>
+    <div className="min-h-screen flex flex-col lg:flex-row items-center lg:justify-start relative ml-auto gap-12 px-10 lg:px-28">
+      <form onSubmit={handleSubmit} className="bg-[#0a0a0a] p-8 rounded shadow-md w-full max-w-sm space-y-6 text-white lg:ml-72">
+      <h1 className="text-7xl font-inter font-bold flex items-center justify-center">Welcome Back!</h1>
 
       <p className="font-inter text-2xl">Email</p>
       <input type="text" placeholder="Email" className="w-full p-2 mb-4 bg-[#2a2a2c] rounded-xl" value={email} onChange={(e) => setEmail(e.target.value)} />

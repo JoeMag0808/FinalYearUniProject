@@ -9,7 +9,10 @@ export default {
     extend: {
       fontFamily: {
         bebas: ['Bebas Neue', 'sans-serif'],
-        inter: ['Inter', 'sans-serif']
+        inter: ['Inter', 'sans-serif'],
+        poppins: ['Poppins', 'sans-serif'],
+        montserrat: ['Montserrat', 'sans-serif'],
+        googleSans: ['Google Sans Flex', 'sans-serif'],
       }
     },
   },

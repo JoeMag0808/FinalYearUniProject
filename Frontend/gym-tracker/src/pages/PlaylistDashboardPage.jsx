@@ -33,8 +33,8 @@ const playlistDashboardPage = () => {
     );
     
     return (
-        <div className="p-5">
-            <h1 className="font-bold text-4xl">Playlist Dashboard</h1>
+        <div className="p-5 font-inter min-h-screen">
+            <h1 className="font-bold font-inter text-white text-4xl">Playlist Dashboard</h1>
 
             <div className="my-5">
                 <input 
@@ -42,7 +42,7 @@ const playlistDashboardPage = () => {
                     placeholder="Search Playlists..." 
                     value={searchPlaylist} 
                     onChange={(e) => setSearchPlaylist(e.target.value)} 
-                    className="p-2 w-[300px] mr-2 border border-grey-300 rounded"
+                    className="p-2 w-[300px] mr-2 border border-grey-300 rounded bg-zinc-900 text-white"
                 /> 
                 <button onClick={() => navigate("/playlists/create")} className="bg-green-500 text-white p-2 rounded-xl text-lg absolute right-4 hover:bg-green-600 transition-colors duration-200">
                     Create Playlist
@@ -50,15 +50,15 @@ const playlistDashboardPage = () => {
             </div>
 
             {filteredPlaylists.length === 0 ? (
-                <p className="text-gray-600 mt-4">No playlists found. Create one to get started!</p>
+                <p className="text-white mt-4">No playlists found. Create one to get started!</p>
             ) : (
                 <div className="grid grid-cols-3 gap-8 px-2">
                 {filteredPlaylists.map((playlist) => (
                     <div 
                         key={playlist._id}
                         onClick={() => navigate(`/playlists/${playlist._id}`)}
-                        className="border border-grey-300 cursor-pointer h-80 bg-white p-4 rounded-xl shadow hover:shadow-md hover:bg-gray-50 transition-all duration-200">
-                        <h3 className="text-xl font-semibold text-center">{playlist.name}</h3>
+                        className="border border-grey-300 cursor-pointer h-80 bg-zinc-900 p-4 rounded-xl shadow hover:shadow-md hover:bg-gray-600 transition-all duration-200">
+                        <h3 className="text-xl font-semibold text-center text-gray-100">{playlist.name}</h3>
                     </div>
                 ))}
                 </div>

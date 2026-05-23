@@ -18,26 +18,28 @@ const Navbar = () => {
   };
 
   return (
-    <header className="bg-black text-white p-4 border-base-content/10">
+    <nav className="bg-[#0a0a0a] border-b border-gray-600 sticky top-0 z-50 font-inter">
       <div className="p-4">
-        <div className="flex items-center justify-between">
-          <Link to="/">
+        <div className="flex items-center justify-between text-white">
+
             <h1 className="text-6xl font-bold text-primary font-bebas tracking-tight">Gym-Track</h1>
-            </Link>
+            
             <div className="flex gap-6 text-lg font-medium text-white">
                 {isLoggedIn ? (
                     <>
+                    <div className="flex flex-row justify-center font-bold gap-6">
                         <Link to="/home" className="hover:text-white transition-colors duration-200">Home</Link>
-                        <Link to="/dashboard" className="hover:text-white transition-colors duration-200">My Dashboard</Link>
-                        <Link to="/playlists" className="hover:text-white transition-colors duration-200">My Playlists</Link>
-                        <Link to={`/profile/${user._id}`} className="hover:text-white transition-colors duration-200">My Profile</Link>
+                        <Link to="/dashboard" className="hover:text-white transition-colors duration-200">Dashboard</Link>
+                        <Link to="/playlists" className="hover:text-white transition-colors duration-200">Playlists</Link>
+                        <Link to={`/profile/${user._id}`} className="hover:text-white transition-colors duration-200">Profile</Link>
                         <button onClick={handleLogout} className="hover:text-white transition-colors duration-200">
                             Logout
                         </button>
+                    </div>
                     </>
                 ) : (
                     <>
-                        <div className="flex flex-row justify-center font-bold gap-6 skew-x-12">
+                        <div className="flex flex-row justify-center font-bold gap-6 skew-x-6">
                         <Link to="/login" className="hover:text-yellow-200 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Login</Link>
                         <Link to="/register" className="hover:text-yellow-200 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Register</Link>
                         </div>
@@ -46,7 +48,7 @@ const Navbar = () => {
             </div>
         </div>
       </div>
-    </header>
+    </nav>
   )
 }
 

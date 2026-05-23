@@ -108,18 +108,18 @@ const PlaylistDetailsPage = () => {
     };
 
     return (
-        <div className="min-h-screen flex justify-center items-start bg-gray-100">
-            <div className="w-full max-w-2xl bg-white p-6 mt-10 rounded-xl shadow">
+        <div className="flex justify-center items-start">
+            <div className="w-full max-w-2xl bg-zinc-900 p-6 mt-10 rounded-xl shadow border border-white border-opacity-50">
             {editMode ? (
                 <div>
                     <input 
                     value={playlistName}
                         onChange={(e) => setPlaylistName(e.target.value)}
-                        className="border border-grey-300 rounded p-2 gap-4 mb-4 w-full"
+                        className="border border-grey-300 rounded p-2 gap-4 mb-4 w-full bg-[#2a2a2c] text-white"
                     />
                 </div>
             ) : (
-                <h1 className="text-3xl font-bold mb-6 text-center">{playlist.name}</h1>
+                <h1 className="text-3xl font-bold mb-6 text-center text-gray-300">{playlist.name}</h1>
             )}
             <ExerciseEditor
                 editExercises={editExercises}
@@ -127,7 +127,7 @@ const PlaylistDetailsPage = () => {
                 editMode={editMode}
             />
             <div className="flex gap-4">
-            <button onClick={() => navigate(`/workout-tracking/${id}`)}>Start Workout</button>
+            <button onClick={() => navigate(`/workout-tracking/${id}`)} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors duration-200">Start Workout</button>
             <button onClick={() => {setPlaylistName(playlist.name); setEditMode(true);}} className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors duration-200">
                 Edit Playlist
             </button>

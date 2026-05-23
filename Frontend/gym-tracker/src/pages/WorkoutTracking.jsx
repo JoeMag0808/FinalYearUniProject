@@ -155,20 +155,24 @@ export default function WorkoutTrackingPage () {
 
     if (currentIndex >= playlist.exercises.length) {
       saveWorkoutData();
-      return <h2>Workout Finished</h2>
+      return <h2 className="lg:text-5xl font-semibold">Workout Finished!</h2>
     }
 
     const exercise = currentItem.exerciseId;
     
   return (
-      <div>
-        <h1>{playlist.name}</h1>
-        <h2>{exercise.name}</h2>
+      <div className="text-gray-300 font-inter">
+        <h1 className="text-center lg:text-7xl gap-y-4 underline pb-10">Playlist: {playlist.name}</h1>
 
-      <h3> set {currentSet} / {currentItem.sets}</h3>
+        <div className="fixed bottom-4 left-0 w-full flex flex-wrap justify-center">
+          <div className="flex flex-row gap-12 mb-4">
+        <h2 className="lg:text-5xl font-semibold">Current Exercise: {exercise.name}</h2>
+      <h3 className="lg:text-5xl font-semibold"> Set: {currentSet} / {currentItem.sets}</h3>
 
-      <h2>Reps: {reps} / {currentItem.reps}</h2>
-      <p>{advice}</p>
+      <h2 className="lg:text-5xl font-semibold">Reps: {reps} / {currentItem.reps}</h2>
+      <p className="lg:text-5xl font-semibold">Advice: {advice}</p>
+      </div>
+      </div>
 
       {!isResting && (
         <WorkoutTracking onResults={handlePose}/>
@@ -176,7 +180,7 @@ export default function WorkoutTrackingPage () {
 
       {isResting && (
         <div>
-          <h2>Rest: {restTime}</h2>
+          <h2 className="lg:text-5xl font-semibold">Rest: {restTime}</h2>
         </div>
       )}
       </div>
