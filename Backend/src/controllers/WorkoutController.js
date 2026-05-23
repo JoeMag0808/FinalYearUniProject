@@ -35,7 +35,7 @@ export const getWorkoutStats = async (req, res) => {
         { $unwind: "$exerciseResults"},
         { $group: {_id: { date: { $dateToString: {format: "%Y-%m-%d", date: "$startTime"}}, exerciseId: "$exerciseResults.exerciseId"}, totalReps: {$sum : "$exerciseResults.totalReps"}}},
         { $lookup: {from: "exercises", localField: "_id.exerciseId", foreignField: "_id", as: "exerciseInfo"}},
-        { $project: {_id: 0, date: "$_id.date", exerciseId: "$_id", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}},
+        { $project: {_id: 0, date: "$_id.date", exerciseId: "$_id.exerciseId", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}},
         { $sort: { date: 1 }}]);
         
     //Total workout time aggregatiion

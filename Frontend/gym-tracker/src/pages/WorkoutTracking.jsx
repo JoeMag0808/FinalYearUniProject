@@ -8,6 +8,7 @@ export default function WorkoutTrackingPage () {
   const [playlist, setPlaylist] = useState(null);
   const [currentSet, setCurrentSet] = useState(1);
   const [reps, setReps] = useState(0);
+  const [totalReps, setTotalReps] = useState({});
   const [advice, setAdvice] = useState("");
   const [restTime, setRestTime] = useState(0);
   const [isResting, setIsResting] = useState(false);
@@ -144,7 +145,8 @@ export default function WorkoutTrackingPage () {
             exerciseResults: playlist.exercises.map((ex) => ({
               exerciseId: ex.exerciseId._id,
               exerciseName: ex.exerciseId.name,
-              totalReps: ex.reps,
+              setsCompleted: ex.sets,
+              totalReps: ex.reps * ex.sets
             }))
           })
         })
@@ -165,9 +167,7 @@ export default function WorkoutTrackingPage () {
 
       <h3> set {currentSet} / {currentItem.sets}</h3>
 
-      <h3>Target reps: {currentItem.reps}</h3>
-
-      <h2>Reps: {reps}</h2>
+      <h2>Reps: {reps} / {currentItem.reps}</h2>
       <p>{advice}</p>
 
       {!isResting && (

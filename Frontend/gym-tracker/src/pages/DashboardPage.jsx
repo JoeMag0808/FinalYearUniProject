@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
-import { BarChart, Bar, XAxis, YAxis, Tooltip, PieChart, Pie, Legend, LabelList} from "recharts";
+import { BarChart, Bar, LineChart, Line, XAxis, YAxis, Tooltip, PieChart, Pie, Legend, LabelList, ResponsiveContainer} from "recharts";
 
 const DashboardPage = () => {
     const [stats, setStats] = useState(null);
@@ -33,7 +33,6 @@ const DashboardPage = () => {
       const hour = Math.floor(seconds / 3600);
       const minute = Math.floor((seconds % 3600) / 60);
       const second = seconds % 60;
-
       return `${hour}:${minute.toString().padStart(2, "0")}:${second.toString().padStart(2, "0")}`;
     };
 
@@ -94,41 +93,49 @@ const DashboardPage = () => {
 
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-xl font-bold mb-2 underline text-center">Overall Reps Completed Per Exercise</h2>
+          <ResponsiveContainer width="100%" height={300}>
           <BarChart width={350} height={300} data={exerciseRepTotals}>
             <XAxis dataKey="exerciseName"/>
             <YAxis />
             <Tooltip />
             <Bar dataKey="totalReps" name="Total Reps" fill="#8884d8"/>
           </BarChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-xl font-bold mb-2 underline text-center">Average of Reps Completed Per Day</h2>
-          <BarChart width={600} height={300} data={stats?.exerciseRepTotalsDaily}>
+          <ResponsiveContainer width="100%" height={300}>
+          <LineChart width={600} height={300} data={stats?.exerciseRepTotalsDaily}>
             <XAxis dataKey="date"/>
             <YAxis />
             <Tooltip />
-            <Bar dataKey="totalReps" name="Reps" fill="#8884d8"/>
-          </BarChart>
+            <Line dataKey="totalReps" name="Reps" fill="#8884d8"/>
+          </LineChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-xl font-bold mb-2 underline text-center">Average of Reps Completed Per Day</h2>
+          <ResponsiveContainer width="100%" height={300}>
           <PieChart width={400} height={300}>
             <Pie data={pieChartData} dataKey="value" nameKey="name" outerRadius={100} fill="#000000" label/>
             <Tooltip formatter={(value) => `${value}%`}/>
             <Legend />
           </PieChart>
+          </ResponsiveContainer>
         </div>
 
         <div className="bg-white p-4 rounded shadow">
           <h2 className="text-xl font-bold mb-2 underline text-center">Average Time Spent Exercising Daily</h2>
+          <ResponsiveContainer width="100%" height={300}>
           <BarChart width={400} height={300} data={weeklyTimeData}>
             <XAxis dataKey="date"/>
             <YAxis />
             <Tooltip formatter={(value) => `${value} min`}/>
             <Bar dataKey="duration" name="Duration" fill="#11111"/>
           </BarChart>
+          </ResponsiveContainer>
         </div>
 
       </div>
