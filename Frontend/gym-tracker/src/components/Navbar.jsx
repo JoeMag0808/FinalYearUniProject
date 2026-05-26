@@ -1,4 +1,5 @@
 import { Link, useNavigate } from "react-router-dom"
+import dumbbell from "../assets/dumbbell.png"
 
 const Navbar = () => {
   
@@ -20,11 +21,11 @@ const Navbar = () => {
   return (
     <nav className="bg-[#0a0a0a] border-b border-gray-600 sticky top-0 z-50 font-inter">
       <div className="p-4">
-        <div className="flex items-center justify-between text-white">
+        <div className="flex items-center text-white">
 
+            <img src={dumbbell} className="w-10 h-10 mr-2"/>
             <h1 className="text-6xl font-bold text-primary font-bebas tracking-tight">Gym-Track</h1>
-            
-            <div className="flex gap-6 text-lg font-medium text-white">
+            <div className="flex gap-6 text-lg font-medium text-gray-300 ml-auto">
                 {isLoggedIn ? (
                     <>
                     <div className="flex flex-row justify-center font-bold gap-6">

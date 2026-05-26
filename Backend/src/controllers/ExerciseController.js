@@ -12,6 +12,7 @@ export const getExercises = async (req, res) => {
     }
 };
 
+//Create new exercise (admin only)
 export const createExercise = async (req, res) => {
     const exercise = await Exercise.create(req.body);
     res.json(exercise);

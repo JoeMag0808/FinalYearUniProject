@@ -41,7 +41,7 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
     return (
         <div>
             {editExercises.length === 0 ? (
-                    <p className="text-gray-400 mt-4">No exercises in this playlist.</p>
+                    <p className="text-gray-400 mt-4">No exercises in this playlist. Try adding some!</p>
                 ) : (
                  editExercises.map((exercise, index) => (
                 <div key={exercise.id} className="border border-gray-300 p-4 mb-3 rounded-lg">

@@ -28,6 +28,7 @@ const playlistDashboardPage = () => {
         fetchPlaylists();
     }, []);
 
+    // Search function for playlsits
     const filteredPlaylists = playlists.filter((playlist) =>
         playlist.name.toLowerCase().includes(searchPlaylist.toLowerCase())
     );
@@ -52,13 +53,21 @@ const playlistDashboardPage = () => {
             {filteredPlaylists.length === 0 ? (
                 <p className="text-white mt-4">No playlists found. Create one to get started!</p>
             ) : (
-                <div className="grid grid-cols-3 gap-8 px-2">
+                <div className="flex flex-col gap-6">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 mt-10 mb-4 pl-2 text-xl font-semibold text-center text-gray-100">
+                        <p>Playlist Name</p>
+                        <p>Exercises Featured</p>
+                        <p>Date Created</p>
+                    </div>
+                    <hr className="-mt-8 border-gray-500"/>
                 {filteredPlaylists.map((playlist) => (
                     <div 
                         key={playlist._id}
                         onClick={() => navigate(`/playlists/${playlist._id}`)}
-                        className="border border-grey-300 cursor-pointer h-80 bg-zinc-900 p-4 rounded-xl shadow hover:shadow-md hover:bg-gray-600 transition-all duration-200">
+                        className="relative grid grid-cols-3 sm:grid-cols-4 gap-0 py-1 px-2 items-center text-gray-300 hover:bg-zinc-800 cursor-pointer">
                         <h3 className="text-xl font-semibold text-center text-gray-100">{playlist.name}</h3>
+                        <h3 className="text-xl font-semibold text-center text-gray-100">{playlist.exercises.length}</h3>
+                        <h3 className="text-xl font-semibold text-center text-gray-100">{new Date(playlist.createdAt).toLocaleDateString()}</h3>
                     </div>
                 ))}
                 </div>

@@ -74,6 +74,7 @@ export default function WorkoutTrackingPage () {
       }
     };
 
+    //Start rest by setting rest time
     const startRest = (seconds) => {
       setIsResting(true);
       setRestTime(seconds);
@@ -97,6 +98,7 @@ export default function WorkoutTrackingPage () {
         return () => clearTimeout(timer);
       }, [isResting, restTime]);
 
+    //End rest by setting isResting to fasle
     const endRest = () => {
       setIsResting(false);
 
@@ -152,10 +154,10 @@ export default function WorkoutTrackingPage () {
         })
       };
 
-
+    //Once the current index becomes equal or greater than playlist length, save workout and show finsish message
     if (currentIndex >= playlist.exercises.length) {
       saveWorkoutData();
-      return <h2 className="lg:text-5xl font-semibold">Workout Finished!</h2>
+      return <h2 className="lg:text-8xl font-semibold font-inter text-gray-300 flex items-center justify-center h-screen">Workout Finished!</h2>
     }
 
     const exercise = currentItem.exerciseId;
@@ -179,7 +181,7 @@ export default function WorkoutTrackingPage () {
       )}
 
       {isResting && (
-        <div>
+        <div className="fixed  left-0 w-full flex flex-wrap justify-center">
           <h2 className="lg:text-5xl font-semibold">Rest: {restTime}</h2>
         </div>
       )}

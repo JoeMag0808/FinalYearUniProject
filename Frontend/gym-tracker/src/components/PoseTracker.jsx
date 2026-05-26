@@ -34,6 +34,7 @@ export default function WorkoutTracking({ onResults }) {
 
   const rest = (ms) => new Promise((r) => setTimeout(r, ms));
 
+  //Star ta countdown before starting with 3 seconds
   const startCountdown = async (seconds = 3) => {
     for (let i = seconds; i > 0; i--) {
       setCountdown(i);
