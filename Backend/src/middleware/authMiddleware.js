@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 
+//Middleware authenticating requestd with JWT tokens
 export const authMiddleware = (req, res, next) => {
     const authHeader = req.headers.authorization;
 

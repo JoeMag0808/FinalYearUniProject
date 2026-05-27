@@ -22,7 +22,7 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
     }, []);
 
     const addExercise = () => {
-        setEditExercises([...editExercises, { id: crypto.randomUUID(), exerciseId: "", sets: "3", reps: "10", rest: "60" }]);
+        setEditExercises([...editExercises, { id: crypto.randomUUID(), exerciseId: "", sets: "3", reps: "10", rest: "0" }]);
     };
 
     const updateExercise = (index, field, value) => {
@@ -98,15 +98,13 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
 
                    {editMode && (
                     <div className="flex justify-end">
-                    <button onClick={() => removeExercise(index)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors duration-200">
-                        Remove Exercise
-                    </button>
+                    <button onClick={() => removeExercise(index)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors duration-200">Remove Exercise</button>
                     </div>
                    )}
                 </div>
                 ))
             )}
-            {editMode && (<button onClick={addExercise} className="bg-blue-500 text-white p-2 rounded hover:bg-blue-600 transition-colors duration-200 mt-4">+ Add Exercise</button>)}
+            {editMode && (<button onClick={addExercise} className="bg-orange-500 text-white p-2 rounded hover:bg-orange-600 transition-colors duration-200 mt-4">+ Add Exercise</button>)}
             <br /><br />
             </div>
     )

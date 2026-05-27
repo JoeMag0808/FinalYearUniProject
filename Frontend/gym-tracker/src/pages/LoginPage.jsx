@@ -62,7 +62,7 @@ const LoginPage = () => {
 
       <Link to={`/register`} className="w-full bg-primary align-middle items-center hover:text-gray-300 transition-colors duration-200">Don't have an account? Register here</Link>
       </form>
-      <img src={mainImage} className="w-full lg:max-w-6xl h-[50vh] rounded-3xl object-cover ml-auto"/>
+      <img src={mainImage} className="w-full lg:max-w-6xl h-[50vh] rounded-3xl object-cover ml-auto scale-y-110"/>
     </div>
   )
 }

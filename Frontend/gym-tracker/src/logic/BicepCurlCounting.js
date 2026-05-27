@@ -15,7 +15,6 @@ export const bicepcurlAngleLogic = (landmarks, state) => {
 
     let reps = state.reps || 0;
     let stage = state.stage || "down";
-    let advice = "";
 
     if (angle < 40) {
         stage = "up"
@@ -29,6 +28,5 @@ export const bicepcurlAngleLogic = (landmarks, state) => {
     return {
         reps,
         stage,
-        advice
     };
 }

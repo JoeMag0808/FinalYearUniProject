@@ -9,6 +9,8 @@ const DashboardPage = () => {
 
     const navigate = useNavigate();
 
+    const pieChartColours = ["#1a80bb",  "#8cc5e3"];
+
     //Gets todays date
     const currentDate = new Date().toLocaleDateString();
 
@@ -148,7 +150,11 @@ const DashboardPage = () => {
           <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Average of Reps for all Exercises</h2>
           <ResponsiveContainer width="100%" height={300}>
           <PieChart width={400} height={300}>
-            <Pie data={pieChartData} dataKey="value" nameKey="name" outerRadius={100} label/>
+            <Pie data={pieChartData} dataKey="value" nameKey="name" outerRadius={100} label>
+              {pieChartData.map((entry, index) => (
+              <Cell fill={pieChartColours[index % pieChartColours.length]}/>
+              ))}
+            </Pie>
             <Tooltip formatter={(value) => `${value}%`}/>
             <Legend />
           </PieChart>

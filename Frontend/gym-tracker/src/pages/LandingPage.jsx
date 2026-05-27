@@ -19,14 +19,14 @@ return (
     <div className="flex flex-row justify-center gap-16">
     
     <button onClick={() => navigate("/register")} className="text-white bg-green-500 font-inter font-bold text-3xl mt-10 border border-white
-     rounded-3xl px-6 py-2 hover:text-gray-600 transition-colors duration-200">Get Started</button>
+     rounded-3xl px-6 py-2 hover:text-gray-200 transition-colors duration-200">Get Started</button>
     
     <button onClick={() => document.getElementById("explanation").scrollIntoView({ behavior: "smooth" })} className="text-white font-bold font-inter text-3xl mt-10 border border-white 
     rounded-3xl px-6 py-2 hover:text-gray-300 transition-colors duration-200">How it works</button>
     </div>
     </div>
-    <div className="bg-zinc-950 p-4 rounded-xl pb-20">
-    <img src={hero2Image} className="w-full max-w-md lg:max-w-xl rounded-3xl object-contain ml-auto"/>
+    <div className="p-4 rounded-xl pb-20">
+    <img src={hero2Image} className="w-full max-w-md lg:max-w-xl object-contain ml-auto scale-125"/>
     </div>
     </section>
     

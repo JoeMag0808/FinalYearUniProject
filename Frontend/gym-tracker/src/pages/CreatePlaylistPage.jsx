@@ -45,8 +45,11 @@ const CreatePlaylistPage = () => {
                 setEditExercises={setExercises}
                 editMode={true}
             />
+            <div className="flex gap-4">
+            <button onClick={() => navigate("/playlists")} className="bg-gray-500 text-white p-2 rounded hover:bg-gray-600 transition-colors duration-200 max-w-20">Cancel</button>
             <button onClick={createPlaylist} className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors duration-200">Create Playlist</button>
-        </div>
+            </div>
+            </div>
         </div>
     );
 };

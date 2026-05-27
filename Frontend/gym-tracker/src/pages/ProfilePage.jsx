@@ -96,7 +96,7 @@ return (
 
     <div className="flex gap-6 pt-4">
       <button onClick={() => setEditMode(true)} className="text-white bg-green-500 p-2 rounded hover:bg-green-600 transition-colors duration-200 max-w-32">Edit Profile</button>
-      <button onClick={deleteUser} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors duration-200 max-w-32">Delete User</button>
+      <button onClick={deleteUser} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors duration-200 max-w-32">Delete Profile</button>
       </div>
     </div>
      ) : (

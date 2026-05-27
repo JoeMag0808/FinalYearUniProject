@@ -68,6 +68,9 @@ const PlaylistDetailsPage = () => {
     const deletePlaylist = async () => {
         const token = sessionStorage.getItem("token");
 
+        const confirmDeletion = window.confirm("Are you sure you want to delete this playlist?");
+        if (!confirmDeletion) return;
+
         const res = await fetch(`http://localhost:5001/api/playlists/${id}`, {
             method: "DELETE",
             headers: {
@@ -126,16 +129,20 @@ const PlaylistDetailsPage = () => {
                 setEditExercises={setEditExercises}
                 editMode={editMode}
             />
-            <div className="flex gap-4">
-            <button onClick={() => navigate(`/workout-tracking/${id}`)} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors duration-200">Start Workout</button>
-            <button onClick={() => {setPlaylistName(playlist.name); setEditMode(true);}} className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors duration-200">
+            <div className="flex gap-3 justify-center">
+            <button onClick={() => {setPlaylistName(playlist.name); setEditMode(true);}} className="bg-emerald-500 text-white p-2 rounded hover:bg-emerald-600 transition-colors duration-200">
                 Edit Playlist
             </button>
             <button onClick={deletePlaylist} className="bg-red-500 text-white p-2 rounded hover:bg-red-600 transition-colors duration-200">
                 Delete Playlist
             </button>
+            <div className="ml-auto">
+            <button onClick={() => navigate(`/workout-tracking/${id}`)} className="bg-cyan-500 text-white p-2 rounded hover:bg-cyan-600 transition-colors duration-200">Start Workout</button>
             </div>
+            </div>
+            <div className="flex gap-6">
             {editMode && (<button onClick={savePlaylist} className="bg-green-500 text-white p-2 rounded hover:bg-green-600 transition-colors duration-200 mt-4">Save Changes</button>)}
+            </div>
             </div>
             </div>
     );

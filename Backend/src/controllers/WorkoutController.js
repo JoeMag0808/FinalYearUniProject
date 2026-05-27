@@ -40,6 +40,7 @@ export const getWorkoutStats = async (req, res) => {
         { $lookup: {from: "exercises", localField: "_id", foreignField: "_id", as: "exerciseInfo"}},
         { $project: {_id: 0, exerciseId: "$_id", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}}]);
 
+
     //Exercise rep amount for each exercise overall
     const exerciseRepTotals = await WorkoutResults.aggregate([
         { $match: { userId }},
@@ -47,6 +48,7 @@ export const getWorkoutStats = async (req, res) => {
         { $group: {_id: "$exerciseResults.exerciseId", totalReps: {$sum : "$exerciseResults.totalReps"}}},
         { $lookup: {from: "exercises", localField: "_id", foreignField: "_id", as: "exerciseInfo"}},
         { $project: {_id: 0, exerciseId: "$_id", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}}]);
+
 
     //Daily exercise rep amount
     const exerciseRepTotalsDaily = await WorkoutResults.aggregate([
@@ -57,7 +59,8 @@ export const getWorkoutStats = async (req, res) => {
         { $project: {_id: 0, date: "$_id.date", exerciseId: "$_id.exerciseId", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}},
         { $sort: { date: 1 }}]);
 
-     //Exercise rep amount for each exercise per week
+
+    //Exercise rep amount for each exercise per week
     const exerciseRepTotalsWeekly = await WorkoutResults.aggregate([
         { $match: { userId, startTime: { $gte: oneWeekAgo } }},
         { $unwind: "$exerciseResults"},
@@ -65,21 +68,26 @@ export const getWorkoutStats = async (req, res) => {
         { $lookup: {from: "exercises", localField: "_id", foreignField: "_id", as: "exerciseInfo"}},
         { $project: {_id: 0, exerciseId: "$_id", exerciseName: {$arrayElemAt: ["$exerciseInfo.name", 0]}, totalReps: 1}}]);
         
+
     //Total workout time aggregatiion
     const workoutTimeTotal = await WorkoutResults.aggregate([
         { $match: { userId }},
         { $group: {_id: null, totalWorkoutTime: { $sum: "$durationSeconds" }}}]);
      
+
     //Calculate total workout time
     const totalWorkoutTime = workoutTimeTotal[0]?.totalWorkoutTime || 0 
 
-    //
+
+    //Calculate workout time for each day
     const workoutTimeDaily = await WorkoutResults.aggregate([
         { $match: { userId }},
         { $group: {_id: { $dateToString: {format: "%Y-%m-%d", date: "$startTime"}}, totalDuration: { $sum: "$durationSeconds"}}}, { $sort: { _id: 1 }}]);
 
+
     //Count overall amount of user workouts
     const totalWorkouts = await WorkoutResults.countDocuments({ userId });
+
 
     //Count the amount of workout results for today
     const totalWorkoutsForToday = await WorkoutResults.countDocuments({ 
@@ -87,6 +95,7 @@ export const getWorkoutStats = async (req, res) => {
         startTime: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) }
     });
 
+    
     //Average time spent on a full workoutt
     const averageWorkoutTime = totalWorkouts > 0 ? (totalWorkoutTime / totalWorkouts) : 0;
 
