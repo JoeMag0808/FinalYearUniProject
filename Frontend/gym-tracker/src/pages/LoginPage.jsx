@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import mainImage from  "../assets/login-page.jpg"
 
@@ -50,7 +50,7 @@ const LoginPage = () => {
     return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center lg:justify-start relative ml-auto gap-12 px-10 lg:px-28">
       <form onSubmit={handleSubmit} className="bg-[#0a0a0a] p-8 rounded shadow-md w-full max-w-sm space-y-6 text-white lg:ml-72">
-      <h1 className="text-7xl font-inter font-bold flex items-center justify-center">Welcome Back!</h1>
+      <h1 className="text-7xl font-inter font-bold flex items-center justify-center">Login</h1>
 
       <p className="font-inter text-2xl">Email</p>
       <input type="text" placeholder="Email" className="w-full p-2 mb-4 bg-[#2a2a2c] rounded-xl" value={email} onChange={(e) => setEmail(e.target.value)} />
@@ -58,9 +58,9 @@ const LoginPage = () => {
       <p className="font-inter text-2xl">Password</p>
       <input type={showPassword ? "text" : "password"} placeholder="Password" className="w-full p-2 mb-4 bg-[#2a2a2c] rounded-xl" value={password} onChange={(e) => setPassword(e.target.value)}  />
 
-      <button type="submit" className="bg-white text-black w-full bg-primary p-2 rounded-xl hover:bg-primary-dark transition-colors duration-200">Login</button>
+      <button type="submit" className="bg-white text-black w-full bg-primary p-2 rounded-xl hover:bg-gray-300 transition-colors duration-200">Login</button>
 
-      <button onClick={() => navigate("/register")} className="w-full bg-primary p-2 rounded hover:bg-primary-dark transition-colors duration-200">Don't have an account? Create one now</button>
+      <Link to={`/register`} className="w-full bg-primary align-middle items-center hover:text-gray-300 transition-colors duration-200">Don't have an account? Register here</Link>
       </form>
       <img src={mainImage} className="w-full lg:max-w-6xl h-[50vh] rounded-3xl object-cover ml-auto"/>
     </div>

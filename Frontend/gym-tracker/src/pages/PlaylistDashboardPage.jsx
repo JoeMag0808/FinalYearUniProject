@@ -58,6 +58,7 @@ const playlistDashboardPage = () => {
                         <p>Playlist Name</p>
                         <p>Exercises Featured</p>
                         <p>Date Created</p>
+                        <p>Updated</p>
                     </div>
                     <hr className="-mt-8 border-gray-500"/>
                 {filteredPlaylists.map((playlist) => (
@@ -68,6 +69,7 @@ const playlistDashboardPage = () => {
                         <h3 className="text-xl font-semibold text-center text-gray-100">{playlist.name}</h3>
                         <h3 className="text-xl font-semibold text-center text-gray-100">{playlist.exercises.length}</h3>
                         <h3 className="text-xl font-semibold text-center text-gray-100">{new Date(playlist.createdAt).toLocaleDateString()}</h3>
+                        <h3 className="text-xl font-semibold text-center text-gray-100">{new Date(playlist.updatedAt).toLocaleDateString()}</h3>
                     </div>
                 ))}
                 </div>

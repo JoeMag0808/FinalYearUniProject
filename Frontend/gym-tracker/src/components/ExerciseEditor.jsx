@@ -46,12 +46,12 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
                  editExercises.map((exercise, index) => (
                 <div key={exercise.id} className="border border-gray-300 p-4 mb-3 rounded-lg">
                     
-                    <p className="font-semibold mb-2 text-gray-300">Exercise</p>
+                    <p className="font-semibold mb-2 text-gray-100">Exercise</p>
                     <select
                         disabled={!editMode}
                         value={exercise.exerciseId._id || exercise.exerciseId}
                         onChange={(e) => updateExercise(index,"exerciseId", e.target.value)}
-                        className="border border-gray-300 p-2 rounded-md mb-3 text-gray-300 bg-zinc-800"
+                        className="border border-gray-300 p-2 rounded-md mb-3 text-gray-100 bg-zinc-800"
                         >
                             <option value="" disabled>
                             --- Select Exercise ---
@@ -65,39 +65,43 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
                             ))}
                     </select>
                     
-                    <p className="text-gray-300">Sets:</p>
+                    <p className="text-gray-100">Sets:</p>
                     <input
                         type="number"
                         placeholder="Sets"
                         disabled={!editMode}
                         value={exercise.sets}
-                        onChange={(e) => updateExercise(index, "sets", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
+                        onChange={(e) => updateExercise(index, "sets", Math.max(0, parseInt(e.target.value)))}
+                        className="border border-gray-300 p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Sets"
                     />
-                    <p className="text-gray-300">Reps:</p>
+                    <p className="text-gray-100">Reps:</p>
                     <input
                         type="number"
                         placeholder="Reps"
                         disabled={!editMode}
                         value={exercise.reps}
-                        onChange={(e) => updateExercise(index, "reps", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
+                        onChange={(e) => updateExercise(index, "reps", Math.max(0, parseInt(e.target.value)))}
+                        className="border border-gray-300 p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Reps"
                     />
-                    <p className="text-gray-300">Rest (secs):</p>
+                    <p className="text-gray-100">Rest (secs):</p>
                     <input
                         type="number"
                         placeholder="Rest (seconds)"
                         disabled={!editMode}
                         value={exercise.restSeconds}
-                        onChange={(e) => updateExercise(index, "restSeconds", parseInt(e.target.value))}
-                        className="border p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
+                        onChange={(e) => updateExercise(index, "restSeconds", Math.max(0, parseInt(e.target.value)))}
+                        className="border border-gray-300 p-2 mr-2 rounded w-20 text-gray-300 bg-zinc-800"
                         placeholder="Rest (sec)"
                     />
 
                    {editMode && (
-                    <button onClick={() => removeExercise(index)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors duration-200">Remove</button>
+                    <div className="flex justify-end">
+                    <button onClick={() => removeExercise(index)} className="bg-red-500 text-white px-3 py-1 rounded hover:bg-red-600 transition-colors duration-200">
+                        Remove Exercise
+                    </button>
+                    </div>
                    )}
                 </div>
                 ))

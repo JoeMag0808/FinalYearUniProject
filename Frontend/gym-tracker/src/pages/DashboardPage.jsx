@@ -76,12 +76,13 @@ const DashboardPage = () => {
     }, []);
 
   return (
-    <div className="min-h-screen flex items-top-center justify-center p-10">
+    <div className="min-h-screen flex items-top-center justify-center text-center p-10">
 
-      <div className="w-full bg-zinc-800 p-8 rounded-2xl shadow-lg font-inter">
-      <h1 className="text-4xl font-bold mb-6 text-center text-gray-300 underline">Dashboard</h1>
+      <div className="w-full bg-zinc-800 p-8 rounded-2xl shadow-lg">
+      <h1 className="text-4xl font-bold mb-2 text-center text-gray-100">Dashboard</h1>
+      <p className="text-xl font-semibold mb-6 text-center text-gray-400">Welcome back! Lets view your progress!</p>
 
-      <div className="grid grid-cols-2 gap-4 mt-6">
+      <div className="grid grid-cols-4 gap-4 mt-6 break-words">
 
         <div className="bg-zinc-900 p-4 rounded-xl shadow">
           <h2 className="text-xl font-semibold mb-2 text-center text-gray-300">Top Exercise</h2>
@@ -103,7 +104,22 @@ const DashboardPage = () => {
           <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Average Workout Duration</h2>
           <p className="text-xl font-bold mb-2 text-gray-100">{formatAverageTime(stats?.averageWorkoutTime)}</p>
         </div>
+        </div>
 
+        <div className="grid grid-cols-2 gap-4 mt-6 mb-6">
+
+        <div className="bg-zinc-900 p-4 rounded-xl shadow">
+          <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Average of Reps Completed Per Day</h2>
+          <ResponsiveContainer width="100%" height={300}>
+          <LineChart width={600} height={300} data={stats?.exerciseRepTotalsDaily}>
+            <XAxis dataKey="date"/>
+            <YAxis />
+            <Tooltip />
+            <Line dataKey="totalReps" name="Reps" fill="#8884d8"/>
+          </LineChart>
+          </ResponsiveContainer>
+        </div>
+        
         <div className="bg-zinc-900 p-4 rounded-xl shadow">
           <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Overall Weekly Reps Completed Per Exercise</h2>
           <ResponsiveContainer width="100%" height={300}>
@@ -117,17 +133,17 @@ const DashboardPage = () => {
         </div>
 
         <div className="bg-zinc-900 p-4 rounded-xl shadow">
-          <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Average of Reps Completed Per Day</h2>
+          <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Total Time Spent Exercising Daily</h2>
           <ResponsiveContainer width="100%" height={300}>
-          <LineChart width={600} height={300} data={stats?.exerciseRepTotalsDaily}>
+          <BarChart width={400} height={300} data={weeklyTimeData}>
             <XAxis dataKey="date"/>
             <YAxis />
-            <Tooltip />
-            <Line dataKey="totalReps" name="Reps" fill="#8884d8"/>
-          </LineChart>
+            <Tooltip formatter={(value) => `${value} min`}/>
+            <Bar dataKey="duration" name="Duration" fill="#185742"/>
+          </BarChart>
           </ResponsiveContainer>
         </div>
-
+        
         <div className="bg-zinc-900 p-4 rounded-xl shadow">
           <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Average of Reps for all Exercises</h2>
           <ResponsiveContainer width="100%" height={300}>
@@ -136,18 +152,6 @@ const DashboardPage = () => {
             <Tooltip formatter={(value) => `${value}%`}/>
             <Legend />
           </PieChart>
-          </ResponsiveContainer>
-        </div>
-
-        <div className="bg-zinc-900 p-4 rounded-xl shadow">
-          <h2 className="text-xl font-bold mb-2 text-center text-gray-300">Total Time Spent Exercising Daily</h2>
-          <ResponsiveContainer width="100%" height={300}>
-          <BarChart width={400} height={300} data={weeklyTimeData}>
-            <XAxis dataKey="date"/>
-            <YAxis />
-            <Tooltip formatter={(value) => `${value} min`}/>
-            <Bar dataKey="duration" name="Duration" fill="#0101010"/>
-          </BarChart>
           </ResponsiveContainer>
         </div>
 

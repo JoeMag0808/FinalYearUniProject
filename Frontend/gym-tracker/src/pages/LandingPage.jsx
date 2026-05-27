@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import hero2Image from "../assets/landing-page-2.jpg"
 import PlayistDemo from "../assets/PlaylistDemo.mp4"
+import dashboarddemo from "../assets/dashboarddemo.mp4"
 
 const LandingPage = () => {
 
@@ -17,14 +18,14 @@ return (
     <p className="text-white text-3xl mt-6 lg:text-3xl font-inter text-center">Track your workouts. Collect results. Push yourself to the limit.</p>
     <div className="flex flex-row justify-center gap-16">
     
-    <button onClick={() => navigate("/register")} className="text-black bg-green-400 font-inter font-bold text-3xl mt-10 border border-white
+    <button onClick={() => navigate("/register")} className="text-white bg-green-500 font-inter font-bold text-3xl mt-10 border border-white
      rounded-3xl px-6 py-2 hover:text-gray-600 transition-colors duration-200">Get Started</button>
     
     <button onClick={() => document.getElementById("explanation").scrollIntoView({ behavior: "smooth" })} className="text-white font-bold font-inter text-3xl mt-10 border border-white 
     rounded-3xl px-6 py-2 hover:text-gray-300 transition-colors duration-200">How it works</button>
     </div>
     </div>
-    <div className="bg-black p-4 rounded-xl">
+    <div className="bg-zinc-950 p-4 rounded-xl pb-20">
     <img src={hero2Image} className="w-full max-w-md lg:max-w-xl rounded-3xl object-contain ml-auto"/>
     </div>
     </section>
@@ -52,17 +53,22 @@ return (
     <h1 className="text-yellow-200 font-serif text-5xl font-bold lg:text-7xl">Dashboard Feature</h1>
     <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">The dashboard feature allows you to gain a deeper perspective on your fitness journey.</p>
     <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Through the use of multiple charts and graphs, you can visualise your progress and performance over time.</p>
-    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Use this data to understnad trends, and form a more informed approach to fitness.</p>
+    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Use this data to understand trends, and form a more informed approach to fitness.</p>
+    </div>
+    <div className="w-full max-w-7xl">
+    <video autoPlay loop muted className="w-full max-w-7xl rounded-3xl mt-4">
+        <source src={dashboarddemo} type="video/mp4"/>
+    </video>
     </div>
     </section>
 
     <section id="playlist" className="bg-[#0a0a0a] min-h-screen flex flex-col lg:flex-row items-center justify-center relative ml-auto gap-12 px-10 lg:px-28">
     <div className="text-white font-inter text-3xl mt-6 lg:text-3xl text-center">
     <h1 className="text-yellow-200 font-serif text-5xl font-bold lg:text-7xl">Playlist Feature</h1>
-    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">The playlist feature allows you the craetion of different custom-tailored workouts.</p>
-    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Create your own workout structure, slecting exercises of your choice, along with the amount of sets, reps and 
+    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">The playlist feature allows you the creation of different custom-tailored workouts.</p>
+    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Create your own workout structure, selecting exercises of your choice, along with the amount of sets, reps and 
     rest times between.</p>
-    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Develop your own unique training plan, and gai ncontrol over your fitness journey.</p>
+    <p className="text-white font-inter text-3xl mt-6 lg:text-3xl">Develop your own unique training plan, and gain control over your fitness journey.</p>
     </div>
     <div className="w-full max-w-7xl">
     <video autoPlay loop muted className="w-full max-w-7xl rounded-3xl mt-4">

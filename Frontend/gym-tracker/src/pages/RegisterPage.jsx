@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from "sonner";
 import mainImage from  "../assets/login-page.jpg"
 
@@ -63,7 +63,7 @@ const RegisterPage = () => {
 
       <button type="submit" className="bg-white text-black w-full bg-primary p-2 rounded-xl hover:bg-primary-dark transition-colors duration-200">Create Account</button>
 
-      <button onClick={() => navigate("/login")} className="w-full bg-primary p-2 rounded hover:bg-primary-dark transition-colors duration-200">Already have an account? Login here</button>
+      <Link to={`/login`} className="w-full bg-primary align-middle hover:text-gray-300 transition-colors duration-200">Already have an account? Login here</Link>
       </form>
       <img src={mainImage} className="w-full lg:max-w-6xl h-[50vh] rounded-3xl object-cover ml-auto"/>
     </div>

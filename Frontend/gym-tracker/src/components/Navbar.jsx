@@ -25,15 +25,15 @@ const Navbar = () => {
 
             <img src={dumbbell} className="w-10 h-10 mr-2"/>
             <h1 className="text-6xl font-bold text-primary font-bebas tracking-tight">Gym-Track</h1>
-            <div className="flex gap-6 text-lg font-medium text-gray-300 ml-auto">
+            <div className="flex gap-6 text-lg font-medium text-white ml-auto">
                 {isLoggedIn ? (
                     <>
                     <div className="flex flex-row justify-center font-bold gap-6">
-                        <Link to="/home" className="hover:text-white transition-colors duration-200">Home</Link>
-                        <Link to="/dashboard" className="hover:text-white transition-colors duration-200">Dashboard</Link>
-                        <Link to="/playlists" className="hover:text-white transition-colors duration-200">Playlists</Link>
-                        <Link to={`/profile/${user._id}`} className="hover:text-white transition-colors duration-200">Profile</Link>
-                        <button onClick={handleLogout} className="hover:text-white transition-colors duration-200">
+                        <Link to="/home" className="hover:text-gray-300 transition-colors duration-200">Home</Link>
+                        <Link to="/dashboard" className="hover:text-gray-300 transition-colors duration-200">Dashboard</Link>
+                        <Link to="/playlists" className="hover:text-gray-300 transition-colors duration-200">Playlists</Link>
+                        <Link to={`/profile/${user._id}`} className="hover:text-gray-300 transition-colors duration-200">Profile</Link>
+                        <button onClick={handleLogout} className="hover:text-gray-300 transition-colors duration-200">
                             Logout
                         </button>
                     </div>
@@ -41,8 +41,8 @@ const Navbar = () => {
                 ) : (
                     <>
                         <div className="flex flex-row justify-center font-bold gap-6 skew-x-6">
-                        <Link to="/login" className="hover:text-yellow-200 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Login</Link>
-                        <Link to="/register" className="hover:text-yellow-200 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Register</Link>
+                        <Link to="/login" className="hover:text-gray-300 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Login</Link>
+                        <Link to="/register" className="hover:text-gray-300 transition-colors duration-200 border-2 border-white rounded-2xl px-6 py-2">Register</Link>
                         </div>
                     </>
                 )}
