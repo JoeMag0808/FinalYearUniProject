@@ -18,7 +18,7 @@ const PlaylistDetailsPage = () => {
     const fetchPlaylistDetails = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/playlists/${id}`, {
+        const res = await fetch(`/api/playlists/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -46,7 +46,7 @@ const PlaylistDetailsPage = () => {
     const updatePlaylist = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/playlists/${id}`, {
+        const res = await fetch(`/api/playlists/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +71,7 @@ const PlaylistDetailsPage = () => {
         const confirmDeletion = window.confirm("Are you sure you want to delete this playlist?");
         if (!confirmDeletion) return;
 
-        const res = await fetch(`http://localhost:5001/api/playlists/${id}`, {
+        const res = await fetch(`/api/playlists/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
@@ -89,7 +89,7 @@ const PlaylistDetailsPage = () => {
     const savePlaylist = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/playlists/${id}`, 
+        const res = await fetch(`/api/playlists/${id}`, 
             {
                 method: "PUT",
                 headers: {

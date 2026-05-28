@@ -9,7 +9,7 @@ const ExerciseEditor = ({ editExercises, setEditExercises, editMode }) => {
     useEffect(() => {
         const fetchExercises = async () => {
             try {
-                const res = await fetch("http://localhost:5001/api/exercises")
+                const res = await fetch("/api/exercises")
                 
                 const data = await res.json();
                 setExercises(data);

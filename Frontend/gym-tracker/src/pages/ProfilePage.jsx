@@ -16,7 +16,7 @@ const ProfilePage = () => {
     const fetchUserDetails = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/auth/${id}`, {
+        const res = await fetch(`/api/auth/${id}`, {
             headers: {
                 Authorization: `Bearer ${token}`,
             },

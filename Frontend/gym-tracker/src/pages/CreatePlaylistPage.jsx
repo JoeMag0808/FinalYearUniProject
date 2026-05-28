@@ -12,7 +12,7 @@ const CreatePlaylistPage = () => {
     const createPlaylist = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch("http://localhost:5001/api/playlists", {
+        const res = await fetch("/api/playlists", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

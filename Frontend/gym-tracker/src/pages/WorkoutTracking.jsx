@@ -28,7 +28,7 @@ export default function WorkoutTrackingPage () {
           try {
             const token = sessionStorage.getItem("token");
 
-            const res = await fetch(`http://localhost:5001/api/playlists/${id}`, {
+            const res = await fetch(`/api/playlists/${id}`, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
@@ -135,7 +135,7 @@ export default function WorkoutTrackingPage () {
 
         hasSaved.current = true;
 
-        await fetch("http://localhost:5001/api/workouts", {
+        await fetch("/api/workouts", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -63,7 +63,7 @@ const DashboardPage = () => {
     const fetchStats = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/workouts/stats`, {
+        const res = await fetch(`/api/workouts/stats`, {
             headers: {
                 "Authorization": `Bearer ${token}`
             }
