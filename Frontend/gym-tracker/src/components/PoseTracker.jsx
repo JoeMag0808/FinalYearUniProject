@@ -133,7 +133,7 @@ return (
       {countdown !== null && (
         <div className="lg:text-5xl font-semibold text-center">{countdown}</div>
       )}
-      <div className="relative w-full max-w-3xl aspect-video mx-auto">
+      <div className="relative w-full max-w-5xl aspect-video mx-auto">
       <video ref={videoRef} autoPlay playsInline className="absolute inset-0 w-full h-full object-cover"/>
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full z-10"/>
       </div>
