@@ -2,10 +2,7 @@
     "name": "gym-tracker",
     "version": "1.0.0",
     "scripts": {
-        "install-frontend": "npm-install --prefix Frontend/gym-tracker",
-        "build-frontend": "npm run build --prefix Frontend/gym-tracker",
-        "install-backend": "npm-install --prefix Backend",
-        "build" : "npm run install-frontend && npm run build-frontend && npm run install-backend",
+        "build" : "npm run install-frontend/gym-tracker && npm run build-frontend/gym-tracker",
         "start": "node Backend/src/app.js"
     }
 }
