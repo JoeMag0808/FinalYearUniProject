@@ -40,7 +40,7 @@ const ProfilePage = () => {
     const updateUserDetails = async () => {
         const token = sessionStorage.getItem("token");
 
-        const res = await fetch(`http://localhost:5001/api/auth/${id}`, {
+        const res = await fetch(`/api/auth/${id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -67,7 +67,7 @@ const ProfilePage = () => {
         const confirmDeletion = window.confirm("Are you sure you want to delete your account?");
         if (!confirmDeletion) return;
 
-        const res = await fetch(`http://localhost:5001/api/auth/${id}`, {
+        const res = await fetch(`/api/auth/${id}`, {
             method: "DELETE",
             headers: {
                 Authorization: `Bearer ${token}`,
