@@ -3,6 +3,6 @@
     "version": "1.0.0",
     "scripts": {
         "build" : "cd Frontend/gym-tracker && npm install --include=dev && npm run build",
-        "start": "node Backend/src/app.js"
+        "start": "cd Backend && npm install && node src/app.js"
     }
 }
