@@ -6,6 +6,8 @@ import exerciseRoutes from "./routes/ExerciseRoutes.js";
 import workoutRoutes from "./routes/WorkoutRoutes.js";
 import { connectDB } from "./config/db.js";
 import cors from "cors";
+import { fileURLToPath } from "url";
+import path from "path";
 
 const app = express();
 const PORT = process.env.PORT || 5001;
@@ -21,4 +23,13 @@ app.use("/api/workouts", workoutRoutes);
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
     connectDB();
+});
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "../../Frontend/gym-tracker/dist")));
+
+app.get((req, res) => {
+    res.sendFile(path.join(__dirname, "../../Frontend/gym-tracker/dist/index.html"));
 });

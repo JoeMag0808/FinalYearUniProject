@@ -92,10 +92,10 @@ export const getWorkoutStats = async (req, res) => {
     //Count the amount of workout results for today
     const totalWorkoutsForToday = await WorkoutResults.countDocuments({ 
         userId, 
-        startTime: { $gte: new Date(Date.now() - 24 * 60 * 60 * 1000) }
+        startTime: { $gte: today, $lt: tomorrow }
     });
 
-    
+
     //Average time spent on a full workoutt
     const averageWorkoutTime = totalWorkouts > 0 ? (totalWorkoutTime / totalWorkouts) : 0;
 
