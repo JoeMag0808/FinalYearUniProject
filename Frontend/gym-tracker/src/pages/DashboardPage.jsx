@@ -117,7 +117,7 @@ const DashboardPage = () => {
             <XAxis dataKey="date"/>
             <YAxis />
             <Tooltip />
-            <Line dataKey="totalReps" name="Reps" fill="#8884d8"/>
+            <Line key="Total Reps" dataKey="totalReps" name="Total Reps" fill="#8884d8"/>
           </LineChart>
           </ResponsiveContainer>
         </div>
