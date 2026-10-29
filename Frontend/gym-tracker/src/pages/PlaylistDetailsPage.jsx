@@ -40,7 +40,7 @@ const PlaylistDetailsPage = () => {
     }, [id]);
 
     
-    if (!playlist) return <div>Loading...</div>;
+    if (!playlist) return <div className="lg:text-8xl font-semibold font-inter text-gray-300 flex items-center justify-center h-screen">Loading...</div>;
 
 
     const updatePlaylist = async () => {

@@ -118,7 +118,7 @@ export default function WorkoutTrackingPage () {
     setAdvice("");
     };
 
-    if (!playlist) return <p>Loading Workout Playlist...</p>
+    if (!playlist) return <p className="lg:text-8xl font-semibold font-inter text-gray-300 flex items-center justify-center h-screen">Loading Workout Playlist...</p>
 
     const currentItem = playlist.exercises[currentIndex];
 
